@@ -1,0 +1,214 @@
+
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, #74ebd5, #ACB6E5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.8s ease;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.app {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  width: 90%;
+  max-width: 450px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+}
+
+.search-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-box button {
+  padding: 12px 18px;
+  border: none;
+  background-color: #ffffff88;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.search-box button:hover {
+  background-color: #fff;
+}
+
+.time-date {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px rgba(0,0,0,0.3);
+}
+
+.weather-info {
+  margin-bottom: 20px;
+}
+
+.weather-info h2 {
+  font-size: 2.4rem;
+  margin-bottom: 6px;
+  text-shadow: 0 0 6px rgba(0,0,0,0.4);
+}
+
+.weather-info p {
+  font-size: 1.2rem;
+  margin: 5px 0;
+  text-transform: capitalize;
+}
+
+.weather-icon {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 10px;
+  display: block;
+  filter: drop-shadow(1px 2px 4px rgba(0,0,0,0.5));
+}
+
+.forecast {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  border-top: 1px solid #ffffff55;
+  margin-top: 10px;
+}
+
+.forecast-day {
+  background: rgba(255,255,255,0.1);
+  border-radius: 15px;
+  flex: 0 0 60px;
+  text-align: center;
+  padding: 10px 5px;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 0 8px rgba(255,255,255,0.15);
+}
+
+.forecast-day img {
+  width: 40px;
+  height: 40px;
+  margin: 5px 0;
+}
+
+.weather-animation {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.cloud {
+  position: absolute;
+  background: #fff;
+  background: linear-gradient(to bottom, #fff 0%, #d4d4d4 100%);
+  border-radius: 50%;
+  opacity: 0.8;
+  animation-timing-function: linear;
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.cloud::before {
+  width: 60px; height: 60px;
+  top: -30px; left: 10px;
+  background: linear-gradient(to bottom, #fff 0%, #d4d4d4 100%);
+}
+
+.cloud::after {
+  width: 80px; height: 80px;
+  top: -40px; right: 10px;
+  background: linear-gradient(to bottom, #fff 0%, #d4d4d4 100%);
+}
+
+@keyframes cloudMove {
+  from { left: -150px; }
+  to { left: 110vw; }
+}
+
+.rain-drop {
+  position: absolute;
+  width: 2px;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 2px;
+  animation-name: rainFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rainFall {
+  0% {
+    top: -20px;
+    opacity: 0.7;
+  }
+  100% {
+    top: 100vh;
+    opacity: 0;
+  }
+}
+
+.snowflake {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.9;
+  animation-name: snowFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes snowFall {
+  0% {
+    top: -15px;
+    opacity: 1;
+  }
+  100% {
+    top: 100vh;
+    opacity: 0;
+  }
+}
+.forecast::-webkit-scrollbar {
+  height: 6px;
+}
+.forecast::-webkit-scrollbar-thumb {
+  background: #fff7;
+  border-radius: 3px;
+}
